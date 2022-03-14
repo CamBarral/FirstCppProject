@@ -5,14 +5,46 @@
 
 using namespace std;
 
+void Damage(int health) {
+    health -= 2;
+ }
+
+void DamageReference(int& health) {
+    health -= 2;
+}
+
+void DamagePointedObject(int* health) { //If we wanna store something.
+    *health -= 3;
+}
+
 int main()
 {
     /*std::cout << "Hello World!\n";*/  // Without using namespace std.
     cout << "Hello World!"<<endl; // << to exit / display something.
-    string answer;
-    cin >> answer; // >> to store something on variable.
-    cout << answer <<endl;
+    //string answer;
+    //cin >> answer; // >> to store something on variable.
+    //cout << answer <<endl;
+
+    int life = 10;
+    cout << "The value " << life << " is stored at memory adress :" << &life << endl; //Show where the value is stored.
+    Damage(life);
+    cout << life << endl;
+
+    DamageReference(life);
+    cout << life << endl;
+
+    DamagePointedObject(&life);
+    cout << life << endl;
 }
+
+
+
+
+
+
+
+
+
 
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
 // Déboguer le programme : F5 ou menu Déboguer > Démarrer le débogage
